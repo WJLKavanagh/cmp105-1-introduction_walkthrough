@@ -14,24 +14,27 @@ Input::Input()
 	m_mouse.y = 0;
 }
 
-void Input::setKeyDown(int key)
+void Input::setKeyDown(sf::Keyboard::Scancode key)
 {
-	if (key >= 0 && key < m_keys.size())
+	int i = static_cast<int>(key);
+	if (i >= 0 && i < m_keys.size())
 	{
-		m_keys[key] = true;
+		m_keys[i] = true;
 	}
 }
 
-void Input::setKeyUp(int key)
+void Input::setKeyUp(sf::Keyboard::Scancode key_pressed)
 {
+	int key = static_cast<int>(key_pressed);
 	if (key >= 0 && key < m_keys.size())
 	{
 		m_keys[key] = false;
 	}
 }
 
-bool Input::isKeyDown(int key)
+bool Input::isKeyDown(sf::Keyboard::Scancode key_pressed)
 {
+	int key = static_cast<int>(key_pressed);
 	if (key >= 0 && key < m_keys.size())
 	{
 		return m_keys[key];
@@ -40,10 +43,11 @@ bool Input::isKeyDown(int key)
 }
 
 // It is pressed if it is DOWN now, but was UP last frame.
-bool Input::isPressed(int key)
+bool Input::isPressed(sf::Keyboard::Scancode key_pressed)
 {
+	int key = static_cast<int>(key_pressed);
 	if (key >= 0 && key < m_keys.size())
-	{ 
+	{
 		return m_keys[key] && !m_previousKeys[key];
 	}
 	return false;
@@ -94,9 +98,10 @@ void Input::setLeftMouse(MouseState state)
 {
 	m_mouse.left = state;
 }
+
 bool Input::isLeftMouseDown()
 {
-	if (m_mouse.left == MouseState::DOWN )
+	if (m_mouse.left == MouseState::DOWN || m_mouse.left == MouseState::PRESSED)
 	{
 		return true;
 	}
@@ -117,9 +122,10 @@ void Input::setRightMouse(MouseState state)
 {
 	m_mouse.right = state;
 }
+
 bool Input::isRightMouseDown()
 {
-	if (m_mouse.right == MouseState::DOWN )
+	if (m_mouse.right == MouseState::DOWN || m_mouse.right == MouseState::PRESSED)
 	{
 		return true;
 	}
@@ -128,9 +134,9 @@ bool Input::isRightMouseDown()
 
 bool Input::isRightMousePressed()
 {
-	if ( m_mouse.right == MouseState::PRESSED)
+	if (m_mouse.right == MouseState::PRESSED)
 	{
-		
+
 		return true;
 	}
 	return false;

@@ -29,11 +29,11 @@ void windowProcess(sf::RenderWindow& window, Input& in)
 		}
 		if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>())
 		{
-			in.setKeyDown(static_cast<int>(keyPressed->scancode));
+			in.setKeyDown(keyPressed->scancode);
 		}
 		if (const auto* keyReleased = event->getIf<sf::Event::KeyReleased>())
 		{
-			in.setKeyUp(static_cast<int>(keyReleased->scancode));
+			in.setKeyUp(keyReleased->scancode);
 		}
 		if (const auto* mousePressed = event->getIf<sf::Event::MouseButtonPressed>())
 		{

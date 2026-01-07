@@ -175,10 +175,9 @@ sfml-network.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)/SFML/lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics.lib
-, sfml-window.lib, 
-sfml-system.lib, 
-sfml-audio.lib, 
+      <AdditionalDependencies>sfml-graphics.lib; sfml-window.lib; 
+sfml-system.lib; 
+sfml-audio.lib;
 sfml-network.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

@@ -14,6 +14,7 @@ void Level::handleInput(float dt)
 	{
 		std::cout << "left mouse pressed" << std::endl;
 	}
+
 }
 
 // Update game objects
