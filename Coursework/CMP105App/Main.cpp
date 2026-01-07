@@ -85,6 +85,7 @@ int main()
 	sf::Clock clock;
 	float deltaTime = 0.f;
 
+
 	// Game Loop
 	while (window.isOpen())
 	{

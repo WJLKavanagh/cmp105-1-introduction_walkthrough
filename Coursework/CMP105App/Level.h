@@ -15,5 +15,9 @@ private:
 	// Default functions for rendering to the screen.
 
 	// Default variables for level class.
-	
+	enum class SnakeDirection { UP, DOWN, LEFT, RIGHT};
+
+	sf::CircleShape m_snake;
+	float m_snakeSpeed = 300.0f;
+	SnakeDirection m_direction;
 };
